@@ -48,7 +48,16 @@ def preprocess_image(img):
 # Function to load the pre-trained model
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("source/trinet_weather_model.h5")
+    import os
+    import streamlit as st
+
+    model_path = "source/trinet_weather_model.h5"
+
+    if os.path.exists(model_path):
+         model = tf.keras.models.load_model(model_path)
+    else:
+         st.error(f"Model file not found at {model_path}. Please check the file location.")
+
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
