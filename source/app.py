@@ -51,7 +51,7 @@ def load_model():
     import os
     import streamlit as st
 
-    model_path = "source/trinet_weather_model.h5"
+    model_path = "source/my_model.keras"
 
     if os.path.exists(model_path):
          model = tf.keras.models.load_model(model_path)
