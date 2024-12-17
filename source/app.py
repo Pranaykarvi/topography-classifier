@@ -47,30 +47,21 @@ def preprocess_image(img):
 
 # Function to load the pre-trained model
 @st.cache_resource
-@st.cache_data
-@st.cache_data
 def load_model():
     model = tf.keras.models.load_model('source/my_model.keras')
     return model
 
-model = load_model()  # Ensure it's loaded correctly
-
-
-model = load_model()  # Ensure it's loaded correctly
-
-
+# Load the model only once
+model = load_model()
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
 page = st.sidebar.selectbox("Go to", ["Home", "Dataset", "About Me", "Prediction"])
 
-# Load the model only once
-model = load_model()
-
 # Home Page
 if page == "Home":
     st.title("🌍 Topography Classification")
-        # Display project image
+    # Display project image
     st.image("source/aerial-view-vouglan-dam-reservoir-north-oyonnax-france.jpg", 
              caption="Topography Classification", use_column_width=True)
     st.write("""
@@ -95,8 +86,6 @@ if page == "Home":
     - Categorical Cross-Entropy Loss and Adam Optimizer
     - Evaluation Metrics: Accuracy and Loss
     """)
-
-
 
 # Dataset Page
 elif page == "Dataset":
@@ -159,6 +148,8 @@ elif page == "Prediction":
                     st.success(f"Prediction: **{class_labels[predicted_class]}**")
                 except Exception as e:
                     st.error(f"Error during prediction: {e}")
+
+# Footer
 st.markdown(
     """
     <style>
@@ -180,5 +171,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
