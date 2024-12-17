@@ -1,0 +1,9 @@
+streamlit>=1.0
+pandas>=1.0
+numpy>=1.0
+matplotlib>=3.0
+seaborn>=0.11
+scikit-learn>=0.24
+tensorflow>=2.5  # If using TensorFlow for models
+h5py>=3.0  # If working with H5 model files
+plotly>=5.0  # Optional, for interactive plots
