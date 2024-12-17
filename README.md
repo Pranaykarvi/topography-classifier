@@ -22,11 +22,6 @@ This project is implemented using Python and deep learning frameworks like Tenso
 - **Real-Time Predictions**: The model provides instant classification results after uploading an image.
 - **Cloud Deployment**: The app is hosted on **Streamlit Cloud**, making it easily accessible from anywhere.
 
-## Demo
-
-The **Topography Classifier** is available for use on **Streamlit Cloud**. You can try it out by uploading satellite images and getting real-time predictions:
-
-[Topography Classifier on Streamlit Cloud](<insert-your-streamlit-link-here>)
 
 ## Technologies Used
 
