@@ -48,7 +48,7 @@ def preprocess_image(img):
 # Function to load the pre-trained model
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model(r"D:\target\ml\satellite\Topography_classifier\trinet_weather_model.h5")
+    return tf.keras.models.load_model("source/trinet_weather_model.h5")
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
@@ -61,7 +61,7 @@ model = load_model()
 if page == "Home":
     st.title("🌍 Topography Classification")
         # Display project image
-    st.image("D:/target/ml/satellite/Topography_classifier/aerial-view-vouglan-dam-reservoir-north-oyonnax-france.jpg", 
+    st.image("source/aerial-view-vouglan-dam-reservoir-north-oyonnax-france.jpg", 
              caption="Topography Classification", use_column_width=True)
     st.write("""
     Welcome to the **Topography Classifier App**!  
