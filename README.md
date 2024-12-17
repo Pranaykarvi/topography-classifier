@@ -42,6 +42,45 @@ This project is implemented using Python and deep learning frameworks like Tenso
 - **Data Preprocessing**: Images are resized and normalized to fit the input requirements of the CNN model.
 - **Model Training**: A CNN model is trained using a labeled dataset of satellite images. The model learns features like textures and patterns that distinguish different topographical categories.
 - **Prediction**: After training, the model can classify new, unseen satellite images with high accuracy.
+## Demo Screenshot
+
+Below is a screenshots of the **Topography Classifier App** in action:
+
+
+If your screenshot is stored in the directory source/ as Screenshot 2024-12-17 225424.png, you can reference it in your README.md file using the relative path. Here's how to update your README.md file:
+
+Updated Example Code for README.md:
+markdown
+Copy code
+# Topography Classifier App
+
+Welcome to the **Topography Classifier App**! This application uses a deep learning model to classify satellite images into four categories: Sky/Cloud, Water, Desert, and Forest.
+
+## Demo Screenshot
+
+Below is a screenshot of the **Topography Classifier App** in action:
+### Home Page
+![Home Page](source/Screenshot%202024-12-17%20225424.png)
+
+### About Dataset
+
+![About Dataset](source/Screenshot%202024-12-17%20225505.png)
+
+### About me
+
+![About me](source/Screenshot%202024-12-17%20225530.png)
+
+### Prediction
+
+![Prediction](source/Screenshot%202024-12-17%20225603.png)
+
+![Prediction](source/Screenshot%202024-12-17%20225628.png)
+
+### Confusion Matrix
+
+![Confusion Matrix](source/Screenshot%202024-12-17%20230740.png)
+
+*The image shows the app interface where you can upload satellite images and get predictions based on the topography category.*
 
 ## Installation
 
