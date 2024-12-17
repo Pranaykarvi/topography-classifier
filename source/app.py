@@ -48,9 +48,13 @@ def preprocess_image(img):
 # Function to load the pre-trained model
 @st.cache_resource
 @st.cache_data
+@st.cache_data
 def load_model():
-    model = tf.keras.models.load_model('source/trinet_weather_model.h5')
+    model = tf.keras.models.load_model('source/my_model.keras')
     return model
+
+model = load_model()  # Ensure it's loaded correctly
+
 
 model = load_model()  # Ensure it's loaded correctly
 
