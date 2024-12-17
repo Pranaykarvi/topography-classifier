@@ -2,7 +2,8 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-import base64
+from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.preprocessing import image
 
 # Function to add a custom button for GitHub and LinkedIn
 def add_custom_button(label, url, icon_url):
@@ -35,7 +36,7 @@ def preprocess_image(img):
     if img.mode != "RGB":
         img = img.convert("RGB")
     
-    # Resize to model input size
+    # Resize to model input size (224x224 for ResNet50)
     img = img.resize((224, 224))
     
     # Convert to numpy array and normalize
@@ -51,8 +52,15 @@ def load_model():
     model = tf.keras.models.load_model('source/my_model.keras')
     return model
 
-# Load the model only once
-model = load_model()
+# Load ResNet50 for feature extraction
+@st.cache_resource
+def load_feature_extractor():
+    feature_extractor = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+    feature_extractor.trainable = False
+    return feature_extractor
+
+model = load_model()  # Load your custom model
+feature_extractor = load_feature_extractor()  # Load ResNet50 feature extractor
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
@@ -61,7 +69,6 @@ page = st.sidebar.selectbox("Go to", ["Home", "Dataset", "About Me", "Prediction
 # Home Page
 if page == "Home":
     st.title("🌍 Topography Classification")
-    # Display project image
     st.image("source/aerial-view-vouglan-dam-reservoir-north-oyonnax-france.jpg", 
              caption="Topography Classification", use_column_width=True)
     st.write("""
@@ -138,11 +145,17 @@ elif page == "Prediction":
         # Preprocess the image
         processed_image = preprocess_image(image)
 
+        # Extract features from the image using ResNet50
+        features = feature_extractor.predict(processed_image)
+
+        # Flatten features and reshape as needed
+        features_flattened = features.flatten().reshape(1, -1)
+
         # Make prediction
         if st.button("Classify Image"):
             with st.spinner("Classifying..."):
                 try:
-                    prediction = model.predict(processed_image)
+                    prediction = model.predict(features_flattened)
                     predicted_class = np.argmax(prediction)
                     class_labels = ["Sky/Cloud", "Desert", "Forest", "Water"]
                     st.success(f"Prediction: **{class_labels[predicted_class]}**")
