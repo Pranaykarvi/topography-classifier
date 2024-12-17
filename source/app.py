@@ -47,16 +47,13 @@ def preprocess_image(img):
 
 # Function to load the pre-trained model
 @st.cache_resource
+@st.cache_data
 def load_model():
-    import os
-    import streamlit as st
+    model = tf.keras.models.load_model('source/my_model.keras')
+    return model
 
-    model_path = "source/my_model.keras"
+model = load_model()  # Ensure it's loaded correctly
 
-    if os.path.exists(model_path):
-         model = tf.keras.models.load_model(model_path)
-    else:
-         st.error(f"Model file not found at {model_path}. Please check the file location.")
 
 
 # Sidebar navigation
