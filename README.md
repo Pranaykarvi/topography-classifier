@@ -45,6 +45,12 @@ This project is implemented using Python and deep learning frameworks like Tenso
 ## Demo Video:
 [![YouTube Video](source/aerial-view-vouglan-dam-reservoir-north-oyonnax-france.jpg)](https://youtu.be/2vzRl2ubPQM)
 
+![Demo1](source/assets/2024-12-1809-14-00-ezgif.com-video-to-gif-converter.gif)
+![Demo2](source/assets/2024-12-1809-14-00-ezgif.com-video-to-gif-converter%20(2).gif)
+![Demo3](source/assets/2024-12-1809-14-00-ezgif.com-video-to-gif-converter%20(3).gif)
+![Demo4](source/assets/2024-12-1809-14-00-ezgif.com-video-to-gif-converter%20(4).gif)
+
+
 Click on the above image for the video
 
 ## Demo Screenshot
